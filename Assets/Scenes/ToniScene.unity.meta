@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scenes/ToniScene.unity.meta
 guid: a8c5820b559bf9a44a14e52e185cc4a2
+========
+guid: ec453c473d23c794fa9e7d8edaf3873e
+folderAsset: yes
+>>>>>>>> c08281cda68c8be8da56238ea7b8b55ae1220f1d:Assets/#Project.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

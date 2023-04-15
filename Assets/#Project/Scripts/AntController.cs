@@ -24,7 +24,7 @@ public class AntController : NetworkBehaviour
         Vector3 lookDirection = (Vector3.zero - spawnPosition).normalized;
         Quaternion spawnRotation = Quaternion.LookRotation(lookDirection, Vector3.up);
 
-        spawnPosition.y = transform.localScale.y / 2;
+        spawnPosition.y = 0;
         transform.rotation = spawnRotation;
         transform.position = spawnPosition;
 

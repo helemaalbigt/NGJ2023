@@ -15,7 +15,6 @@ public class AntController : NetworkBehaviour
         Gizmos.DrawLine(transform.position, transform.position + Vector3.forward * raycastDistance);
     }
     */
-<<<<<<< HEAD
     void Spawn()
     {
         float spawnAngle = Random.Range(0f, 360f); // A random angle in degrees
@@ -30,6 +29,7 @@ public class AntController : NetworkBehaviour
         transform.position = spawnPosition;
 
     }
+    
     public override void OnNetworkSpawn()
     {
       
@@ -45,9 +45,7 @@ public class AntController : NetworkBehaviour
         }
 
     }
-=======
 
->>>>>>> Antonia
     void Update()
     {
 

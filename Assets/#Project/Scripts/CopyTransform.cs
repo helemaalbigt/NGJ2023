@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class CopyTransform : MonoBehaviour
 {
+    public Transform _reference;
     public Transform _target;
     
     void Update() {
-        transform.position = _target.position;
-        transform.rotation = _target.rotation;
+        _target.position = _reference.position;
+        _target.rotation = _reference.rotation;
     }
 }

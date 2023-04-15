@@ -6,6 +6,8 @@ public class AntController : NetworkBehaviour
     public float rotationSpeed = 100f;
     public float raycastDistance = 1f;
     public float raycastMoveCheckDistance = 1f;
+    private GameObject VrPlayer;
+    private float spawnDistance = 2.5f;
 
     /*
     private void OnDrawGizmos()
@@ -13,6 +15,35 @@ public class AntController : NetworkBehaviour
         Gizmos.DrawLine(transform.position, transform.position + Vector3.forward * raycastDistance);
     }
     */
+    void Spawn()
+    {
+        float spawnAngle = Random.Range(0f, 360f); // A random angle in degrees
+        Vector3 spawnDirection = Quaternion.Euler(0f, spawnAngle, 0f) * Vector3.forward; // A vector pointing in a random direction
+        Vector3 spawnPosition = spawnDirection * spawnDistance; // A random position outside of the cube
+
+        Vector3 lookDirection = (Vector3.zero - spawnPosition).normalized;
+        Quaternion spawnRotation = Quaternion.LookRotation(lookDirection, Vector3.up);
+
+        spawnPosition.y = transform.localScale.y / 2;
+        transform.rotation = spawnRotation;
+        transform.position = spawnPosition;
+
+    }
+    public override void OnNetworkSpawn()
+    {
+      
+        if(IsServer && IsOwner)
+        {
+            NetworkObject.Despawn();
+        }
+        if (!IsServer && IsOwner)
+        {
+            VrPlayer = GameObject.Find("VrPlayer");
+            VrPlayer.SetActive(false);
+            Spawn();
+        }
+
+    }
     void Update()
     {
         if (!IsOwner) return;

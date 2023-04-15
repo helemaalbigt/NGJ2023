@@ -62,7 +62,7 @@ public class AntController : NetworkBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        if (Physics.SphereCast(transform.position + Vector3.forward * offset,, transform.localScale.x / 2, transform.forward, out RaycastHit hitForward, raycastMoveCheckDistance))
+        if (Physics.SphereCast(transform.position + Vector3.forward * offset, transform.localScale.x / 2, transform.forward, out RaycastHit hitForward, raycastMoveCheckDistance))
         {
             if (!hitForward.collider.CompareTag("Grabbable"))
             {
@@ -73,7 +73,7 @@ public class AntController : NetworkBehaviour
                 }
             }
         }
-        if (Physics.SphereCast(transform.position + Vector3.forward * offset,, transform.localScale.x / 2, -transform.forward, out RaycastHit hitBack, raycastMoveCheckDistance))
+        if (Physics.SphereCast(transform.position + Vector3.forward * offset, transform.localScale.x / 2, -transform.forward, out RaycastHit hitBack, raycastMoveCheckDistance))
         {
             if(!hitBack.collider.CompareTag("Grabbable"))
             {

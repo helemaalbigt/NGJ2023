@@ -23,12 +23,15 @@ public class BootCalibration : MonoBehaviour
     private bool _triggersHeld;
 
     private void Start() {
+#if UNITY_ANDROID
         _calibrating = true;
         SetCalibrationView();
+#endif
     }
 
     void Update()
     {
+#if UNITY_ANDROID
         if (InputManager.I.Trigger(Hand.right) && InputManager.I.Trigger(Hand.left) && !_calibrating && !_triggersHeld) {
             _calibrating = true;
             _triggersHeld = true;
@@ -51,6 +54,7 @@ public class BootCalibration : MonoBehaviour
         if(_triggersHeld && !InputManager.I.Trigger(Hand.right) && !InputManager.I.Trigger(Hand.left)) {
             _triggersHeld = false;
         }
+#endif
     }
 
     private void SetCalibrationView() {

@@ -13,8 +13,21 @@ public class AntController : NetworkBehaviour
         Gizmos.DrawLine(transform.position, transform.position + Vector3.forward * raycastDistance);
     }
     */
+
     void Update()
     {
+
+        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hitGrab, raycastDistance))
+        {
+            Debug.Log(hitGrab.collider.gameObject.name);
+            if (hitGrab.collider.gameObject.CompareTag("Grabbable"))
+            {
+                Debug.Log("Collided with grabbable object");
+                hitGrab.collider.gameObject.transform.SetParent(transform, true);
+                hitGrab.collider.gameObject.GetComponent<GrabbableObject>().ObjectGrabbed = true;
+            }
+        }
+
         if (!IsOwner) return;
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
@@ -41,33 +54,15 @@ public class AntController : NetworkBehaviour
                 }
             }
         }
-
         // Move the player forward or backward based on input
         transform.Translate(Vector3.forward * vertical * moveSpeed * Time.deltaTime);
 
         // Rotate the player on the Y axis based on input
         transform.Rotate(Vector3.up, horizontal * rotationSpeed * Time.deltaTime);
-        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hitGrab, raycastDistance))
-        {
-            Debug.Log(hitGrab.collider.gameObject.name);
-        }
     }
 
-    //TODO:
-    //When raycast hits a grabbable object, switch a boolean GrabbedFruit to true
-    //When this boolean is true, the fruit will set its transform to the transform of the ant plus some offset
+    //Could do (but decided against):
+    //When raycast hits a grabbable object, switch ObjectGrabbed to true, and set its transform to the transform of ant plus offset
     //(When ants grabs fruit, it checks the difference between its transform and fruit transform, and that is the offset)
     //Then remove this collider system
-
-    //Grab food or other grabbable objects
-    void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("Collided with something");
-
-        if (other.CompareTag("Grabbable"))
-        {
-            Debug.Log("Collided with grabbable object");
-            other.transform.SetParent(transform, true);
-        }
-    }
 }

@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/#Project/_Scenes/NGO.unity
     guid: 9071777bf1200bb4eab6a9a24ca257ea
+  - enabled: 1
+    path: Assets/#Project/_Scenes/NGOToni.unity
+    guid: 8e3af4fca8ec73e409844737dfab4e48
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: c525ba158ecd9334da6e74d5766e4ebe, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 284f80abab5bae54588b12df0803511f, type: 2}

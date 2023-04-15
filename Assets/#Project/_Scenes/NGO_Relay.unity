@@ -1059,7 +1059,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneWrapper
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1804335485, guid: 261cc5795d5a2f04da09126f3f30791b, type: 3}
+    - {fileID: 1283657935, guid: 261cc5795d5a2f04da09126f3f30791b, type: 3}
+    - {fileID: 1804335486, guid: 261cc5795d5a2f04da09126f3f30791b, type: 3}
+    - {fileID: 1283657936, guid: 261cc5795d5a2f04da09126f3f30791b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 261cc5795d5a2f04da09126f3f30791b, type: 3}
 --- !u!1 &1613893113
 GameObject:

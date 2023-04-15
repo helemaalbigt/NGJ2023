@@ -10,11 +10,8 @@ public class StartAndJoinAuto : NetworkBehaviour
     {
         if (Application.platform == RuntimePlatform.Android)
         {
-            NetworkManager.Singleton.StartHost();
-        }
-        else
-        {
-            NetworkManager.Singleton.StartClient();
+            RelayManager.Instance.CreateRelay();
+            //NetworkManager.Singleton.StartHost();
         }
     }
 }

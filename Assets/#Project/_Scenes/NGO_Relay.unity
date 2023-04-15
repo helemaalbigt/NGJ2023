@@ -325,6 +325,11 @@ MonoBehaviour:
       SourcePrefabToOverride: {fileID: 0}
       SourceHashToOverride: 0
       OverridingTargetPrefab: {fileID: 0}
+    - Override: 0
+      Prefab: {fileID: 778003102524237918}
+      SourcePrefabToOverride: {fileID: 0}
+      SourceHashToOverride: 0
+      OverridingTargetPrefab: {fileID: 0}
     TickRate: 30
     ClientConnectionBufferTimeout: 10
     ConnectionApproval: 0
@@ -402,7 +407,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 778003102524237919}
     m_Modifications:
     - target: {fileID: 535166947, guid: ff40006836f51cd47a52292528c8cc3b, type: 3}
       propertyPath: GlobalObjectIdHash
@@ -414,7 +419,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1842008531779401554, guid: ff40006836f51cd47a52292528c8cc3b, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1842008531779401554, guid: ff40006836f51cd47a52292528c8cc3b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -434,7 +439,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1842008531779401554, guid: ff40006836f51cd47a52292528c8cc3b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1842008531779401554, guid: ff40006836f51cd47a52292528c8cc3b, type: 3}
       propertyPath: m_LocalRotation.y
@@ -442,7 +447,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1842008531779401554, guid: ff40006836f51cd47a52292528c8cc3b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1842008531779401554, guid: ff40006836f51cd47a52292528c8cc3b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -473,11 +478,11 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 778003102524237919}
     m_Modifications:
     - target: {fileID: 2020501073652764898, guid: 4b877cf60d4cf9f4bb7007090b421254, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2020501073652764898, guid: 4b877cf60d4cf9f4bb7007090b421254, type: 3}
       propertyPath: m_LocalPosition.x
@@ -497,15 +502,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2020501073652764898, guid: 4b877cf60d4cf9f4bb7007090b421254, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2020501073652764898, guid: 4b877cf60d4cf9f4bb7007090b421254, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2020501073652764898, guid: 4b877cf60d4cf9f4bb7007090b421254, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2020501073652764898, guid: 4b877cf60d4cf9f4bb7007090b421254, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1157,6 +1162,27 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 778003104125052977, guid: 261cc5795d5a2f04da09126f3f30791b, type: 3}
   m_PrefabInstance: {fileID: 6268828824685227731}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &778003102524237919 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 778003104125052976, guid: 261cc5795d5a2f04da09126f3f30791b, type: 3}
+  m_PrefabInstance: {fileID: 6268828824685227731}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &778003102524237920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 778003102524237918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 1536962887
+  AlwaysReplicateAsRoot: 0
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1001 &778003102771774235
 PrefabInstance:
   m_ObjectHideFlags: 0

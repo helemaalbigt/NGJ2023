@@ -26,6 +26,9 @@ public class BootCalibration : MonoBehaviour
 #if UNITY_ANDROID
         _calibrating = true;
         SetCalibrationView();
+#else
+        _shoeLeft.gameObject.SetActive(true);
+        _shoeRight.gameObject.SetActive(true);
 #endif
     }
 

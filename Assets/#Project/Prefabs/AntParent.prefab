@@ -1173,8 +1173,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   rotationSpeed: 100
-  raycastDistance: 0.02
-  raycastMoveCheckDistance: 0.025
+  raycastDistance: 0.1
+  raycastMoveCheckDistance: 0.1
+  offset: 0.035
 --- !u!114 &167460759397162660
 MonoBehaviour:
   m_ObjectHideFlags: 0

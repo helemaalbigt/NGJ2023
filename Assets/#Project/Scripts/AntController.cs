@@ -8,13 +8,13 @@ public class AntController : NetworkBehaviour
     public float raycastMoveCheckDistance = 1f;
     private GameObject VrPlayer;
     private float spawnDistance = 2.5f;
-
-    /*
+    public float offset;
+    
     private void OnDrawGizmos()
     {
-        Gizmos.DrawLine(transform.position, transform.position + Vector3.forward * raycastDistance);
+        Gizmos.DrawLine(transform.position+ Vector3.forward * offset, transform.position + Vector3.forward * raycastDistance);
     }
-    */
+    
     void Spawn()
     {
         float spawnAngle = Random.Range(0f, 360f); // A random angle in degrees
@@ -23,7 +23,6 @@ public class AntController : NetworkBehaviour
 
         Vector3 lookDirection = (Vector3.zero - spawnPosition).normalized;
         Quaternion spawnRotation = Quaternion.LookRotation(lookDirection, Vector3.up);
-
         spawnPosition.y = 0;
         transform.rotation = spawnRotation;
         transform.position = spawnPosition;
@@ -48,7 +47,7 @@ public class AntController : NetworkBehaviour
     void Update()
     {
 
-        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hitGrab, raycastDistance))
+        if (Physics.Raycast(transform.position+Vector3.forward * offset, transform.forward, out RaycastHit hitGrab, raycastDistance))
         {
             Debug.Log(hitGrab.collider.gameObject.name);
             if (hitGrab.collider.gameObject.CompareTag("Grabbable"))
@@ -63,7 +62,7 @@ public class AntController : NetworkBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        if (Physics.SphereCast(transform.position, transform.localScale.x / 2, transform.forward, out RaycastHit hitForward, raycastMoveCheckDistance))
+        if (Physics.SphereCast(transform.position + Vector3.forward * offset,, transform.localScale.x / 2, transform.forward, out RaycastHit hitForward, raycastMoveCheckDistance))
         {
             if (!hitForward.collider.CompareTag("Grabbable"))
             {
@@ -74,7 +73,7 @@ public class AntController : NetworkBehaviour
                 }
             }
         }
-        if (Physics.SphereCast(transform.position, transform.localScale.x / 2, -transform.forward, out RaycastHit hitBack, raycastMoveCheckDistance))
+        if (Physics.SphereCast(transform.position + Vector3.forward * offset,, transform.localScale.x / 2, -transform.forward, out RaycastHit hitBack, raycastMoveCheckDistance))
         {
             if(!hitBack.collider.CompareTag("Grabbable"))
             {

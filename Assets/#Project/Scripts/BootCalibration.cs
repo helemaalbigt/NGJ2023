@@ -18,15 +18,13 @@ public class BootCalibration : MonoBehaviour
     public Camera _mainCamera;
     public GameObject _calibrationWrapper;
     public GameObject _gameWrapper;
-    public CopyTransform _copyTransform;
-    
+
     private bool _calibrating;
     private bool _triggersHeld;
 
     private void Start() {
 #if UNITY_ANDROID
         _calibrating = true;
-        _copyTransform.enabled = false;
         PlaceShoeOnAnchor();
         SetCalibrationView();
 #else
@@ -41,10 +39,6 @@ public class BootCalibration : MonoBehaviour
         if (InputManager.I.Trigger(Hand.right) && InputManager.I.Trigger(Hand.left) && !_calibrating && !_triggersHeld) {
             _calibrating = true;
             _triggersHeld = true;
-
-            _copyTransform.enabled = false;
-            
-            PlaceShoeOnAnchor();
             
             SetCalibrationView();
         }
@@ -53,9 +47,11 @@ public class BootCalibration : MonoBehaviour
             _calibrating = false;
             _triggersHeld = true;
             
-            _copyTransform.enabled = true;
-
             SetGameView();
+        }
+
+        if (_calibrating) {
+            PlaceShoeOnAnchor();
         }
         
         if(_triggersHeld && !InputManager.I.Trigger(Hand.right) && !InputManager.I.Trigger(Hand.left)) {

@@ -1,16 +1,17 @@
-//using UnityEngine;
+using UnityEngine;
 
-//public class GrabbableObject : MonoBehaviour
-//{
-//    void Update()
-//    {
-//        if (Vector3.Distance(transform.position, playerTransform.position) < .2f)
-//        {
-//            transform.parent = playerTransform;
-//        }
-//        else
-//        {
-//            transform.parent = null;
-//        }
-//    }
-//}
+public class GrabbableObject : MonoBehaviour
+{
+    public bool ObjectGrabbed;
+
+    void OnCollisionEnter(Collision collision)
+    {
+        //Drop object if it collides with other things
+        if(ObjectGrabbed)
+        {
+            Debug.Log("Let go of grabbable object");
+            transform.parent = null;
+            ObjectGrabbed = false;
+        }
+    }
+}

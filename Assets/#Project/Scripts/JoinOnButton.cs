@@ -16,5 +16,6 @@ public class JoinOnButton : MonoBehaviour
     public void OnButtonPress()
     {
         RelayManager.Instance.JoinRelay(inputField.text);
+        gameObject.SetActive(false);
     }
 }

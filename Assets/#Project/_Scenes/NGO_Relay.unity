@@ -172,6 +172,11 @@ MonoBehaviour:
   AlwaysReplicateAsRoot: 0
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
+--- !u!1 &319145159 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 954158329648423064, guid: 253ec52ebed876f45b060dbc3754981e, type: 3}
+  m_PrefabInstance: {fileID: 778003103727100326}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &334435444
 Transform:
   m_ObjectHideFlags: 0
@@ -327,6 +332,16 @@ MonoBehaviour:
       OverridingTargetPrefab: {fileID: 0}
     - Override: 0
       Prefab: {fileID: 778003102524237918}
+      SourcePrefabToOverride: {fileID: 0}
+      SourceHashToOverride: 0
+      OverridingTargetPrefab: {fileID: 0}
+    - Override: 0
+      Prefab: {fileID: 319145159}
+      SourcePrefabToOverride: {fileID: 0}
+      SourceHashToOverride: 0
+      OverridingTargetPrefab: {fileID: 0}
+    - Override: 0
+      Prefab: {fileID: 863442120}
       SourcePrefabToOverride: {fileID: 0}
       SourceHashToOverride: 0
       OverridingTargetPrefab: {fileID: 0}
@@ -591,6 +606,11 @@ MonoBehaviour:
   ScaleThreshold: 0.01
   InLocalSpace: 0
   Interpolate: 1
+--- !u!1 &863442120 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 954158329648423064, guid: 253ec52ebed876f45b060dbc3754981e, type: 3}
+  m_PrefabInstance: {fileID: 778003102771774235}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &908119354
 GameObject:
   m_ObjectHideFlags: 0

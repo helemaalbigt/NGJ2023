@@ -24,7 +24,7 @@ public class BootStomper : MonoBehaviour
         _lastPosition = transform.position;
     }
 
-    public void OnCollisionEnter(Collision collision) {
+    public void OnTriggerEnter(Collider collision){
         var isAnt = collision.gameObject.layer == LayerMask.NameToLayer("Ant");
         //var footIsGoingDown = Vector3.Dot(_prevDirections.AverageDirection(), Vector3.up) < 0;
         if(isAnt){

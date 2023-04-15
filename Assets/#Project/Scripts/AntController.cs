@@ -55,7 +55,6 @@ public class AntController : NetworkBehaviour
             {
                 Debug.Log("Collided with grabbable object");
                 hitGrab.collider.gameObject.transform.SetParent(transform, true);
-                hitGrab.collider.gameObject.GetComponent<GrabbableObject>().ObjectGrabbed = true;
             }
         }
 

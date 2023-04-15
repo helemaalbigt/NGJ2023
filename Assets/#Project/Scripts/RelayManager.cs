@@ -77,6 +77,8 @@ public class RelayManager : NetworkBehaviour
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
 
             NetworkManager.Singleton.StartClient();
+
+            Debug.Log("CONNECTED");
         } 
         catch (RelayServiceException e)
         {

@@ -18,6 +18,7 @@ public class BootCalibration : MonoBehaviour
     public Camera _mainCamera;
     public GameObject _calibrationWrapper;
     public GameObject _gameWrapper;
+    public CopyTransform _copyTransform;
     
     private bool _calibrating;
     private bool _triggersHeld;
@@ -25,6 +26,8 @@ public class BootCalibration : MonoBehaviour
     private void Start() {
 #if UNITY_ANDROID
         _calibrating = true;
+        _copyTransform.enabled = false;
+        PlaceShoeOnAnchor();
         SetCalibrationView();
 #else
         _shoeLeft.gameObject.SetActive(true);
@@ -39,6 +42,10 @@ public class BootCalibration : MonoBehaviour
             _calibrating = true;
             _triggersHeld = true;
 
+            _copyTransform.enabled = false;
+            
+            PlaceShoeOnAnchor();
+            
             SetCalibrationView();
         }
         
@@ -46,11 +53,8 @@ public class BootCalibration : MonoBehaviour
             _calibrating = false;
             _triggersHeld = true;
             
-            _shoeLeft.position = _shoeLeftAnchor.position;
-            _shoeLeft.rotation = _shoeLeftAnchor.rotation;
-            _shoeRight.position = _shoeRightAnchor.position;
-            _shoeRight.rotation = _shoeRightAnchor.rotation;
-            
+            _copyTransform.enabled = true;
+
             SetGameView();
         }
         
@@ -60,13 +64,18 @@ public class BootCalibration : MonoBehaviour
 #endif
     }
 
+    private void PlaceShoeOnAnchor() {
+        _shoeLeft.position = _shoeLeftAnchor.position;
+        _shoeLeft.rotation = _shoeLeftAnchor.rotation;
+        _shoeRight.position = _shoeRightAnchor.position;
+        _shoeRight.rotation = _shoeRightAnchor.rotation;
+    }
+
     private void SetCalibrationView() {
         _passthroughLayer.enabled = true;
         _mainCamera.clearFlags = CameraClearFlags.SolidColor;
         _calibrationWrapper.SetActive(true);
         _gameWrapper.SetActive(false);
-        _shoeLeft.gameObject.SetActive(false);
-        _shoeRight.gameObject.SetActive(false);
     }
     
     private void SetGameView() {
@@ -74,7 +83,5 @@ public class BootCalibration : MonoBehaviour
         _mainCamera.clearFlags = CameraClearFlags.Skybox;
         _calibrationWrapper.SetActive(false);
         _gameWrapper.SetActive(true);
-        _shoeLeft.gameObject.SetActive(true);
-        _shoeRight.gameObject.SetActive(true);
     }
 }

@@ -1,12 +1,17 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class CopyTransform : MonoBehaviour
 {
-    public Transform _reference;
-    public Transform _target;
-    
+    public Transform _referenceL;
+    public Transform _targetL;
+    public Transform _referenceR;
+    public Transform _targetR;
+
     void Update() {
-        _target.position = _reference.position;
-        _target.rotation = _reference.rotation;
+        _targetL.position = _referenceL.position;
+        _targetL.rotation = _referenceL.rotation;
+        _targetR.position = _referenceR.position;
+        _targetR.rotation = _referenceR.rotation;
     }
 }

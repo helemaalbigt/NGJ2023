@@ -9,6 +9,9 @@ public class JoinCodeView : MonoBehaviour
     
     void Update()
     {
-        _joinCodeText.text = RelayManager.Instance.JoinCode;
+        if (RelayManager.Instance != null)
+        {
+            _joinCodeText.text = RelayManager.Instance.JoinCode;
+        }
     }
 }

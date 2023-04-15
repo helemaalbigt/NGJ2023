@@ -32,28 +32,28 @@ public class AntController : NetworkBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        //if (Physics.SphereCast(transform.position, transform.localScale.x / 2, transform.forward, out RaycastHit hitForward, raycastMoveCheckDistance))
-        //{
-        //    if (!hitForward.collider.CompareTag("Grabbable"))
-        //    {
-        //        // Block movement
-        //        if (vertical > 0)
-        //        {
-        //            vertical = 0;
-        //        }
-        //    }
-        //}
-        //if (Physics.SphereCast(transform.position, transform.localScale.x / 2, -transform.forward, out RaycastHit hitBack, raycastMoveCheckDistance))
-        //{
-        //    if(!hitBack.collider.CompareTag("Grabbable"))
-        //    {
-        //        // Block movement
-        //        if(vertical < 0)
-        //        {
-        //            vertical = 0;
-        //        }
-        //    }
-        //}
+        if (Physics.SphereCast(transform.position, transform.localScale.x / 2, transform.forward, out RaycastHit hitForward, raycastMoveCheckDistance))
+        {
+            if (!hitForward.collider.CompareTag("Grabbable"))
+            {
+                // Block movement
+                if (vertical > 0)
+                {
+                    vertical = 0;
+                }
+            }
+        }
+        if (Physics.SphereCast(transform.position, transform.localScale.x / 2, -transform.forward, out RaycastHit hitBack, raycastMoveCheckDistance))
+        {
+            if(!hitBack.collider.CompareTag("Grabbable"))
+            {
+                // Block movement
+                if(vertical < 0)
+                {
+                    vertical = 0;
+                }
+            }
+        }
         // Move the player forward or backward based on input
         transform.Translate(Vector3.forward * vertical * moveSpeed * Time.deltaTime);
 

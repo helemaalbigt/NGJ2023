@@ -32,7 +32,6 @@ public class AntController : NetworkBehaviour
     
     public override void OnNetworkSpawn()
     {
-      
         if(IsServer && IsOwner)
         {
             NetworkObject.Despawn();

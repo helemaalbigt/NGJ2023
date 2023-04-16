@@ -15,7 +15,8 @@ public class AntController : MonoBehaviour
     private bool alreadyGrabbed = false;
     public Transform SceneWrapper;
 
-    public bool die = false;
+    public LayerMask layerMask;
+
 
     public void Spawn()
     {
@@ -57,6 +58,7 @@ public class AntController : MonoBehaviour
     }
     void HandleMovement(float horizontal, float vertical)
     {
+        /*
         if (Physics.SphereCast(transform.position + Vector3.forward * offset, SphereRadius, transform.forward, out RaycastHit hitForward, raycastMoveCheckDistance))
         {
             if (!hitForward.collider.CompareTag("Grabbable"))
@@ -79,6 +81,7 @@ public class AntController : MonoBehaviour
                 }
             }
         }
+        */
         // Move the player forward or backward based on input
         transform.Translate(Vector3.forward * vertical * moveSpeed * Time.deltaTime);
 
@@ -88,31 +91,35 @@ public class AntController : MonoBehaviour
 
     void HandleGrab()
     {
-        if (Attach.childCount > 0)
-        {
-            alreadyGrabbed = true;
-        }
-        else
+        if (Attach.childCount == 0)
         {
             alreadyGrabbed = false;
         }
-        if (Physics.Raycast(transform.position + Vector3.forward * offset, transform.forward, out RaycastHit hitGrab, raycastDistance) && !alreadyGrabbed)
+
+        var collisions = Physics.OverlapSphere(transform.position, SphereRadius, layerMask);
+        if(collisions.Length > 0)
         {
-            Debug.Log(hitGrab.collider.gameObject.name);
+            collisions[0].GetComponent<Rigidbody>().isKinematic = true;
+            collisions[0].transform.SetParent(Attach, true);
+            //collisions[0].transform.localPosition = Vector3.zero;
+            alreadyGrabbed = true;
+        }
+        /*
+        if (Physics.SphereCast(transform.position + Vector3.forward * offset, SphereRadius, transform.forward, out RaycastHit hitGrab, raycastDistance) && !alreadyGrabbed)
+        {
             if (hitGrab.collider.gameObject.CompareTag("Grabbable"))
             {
                 Debug.Log("Collided with grabbable object");
+                    
+                hitGrab.collider.gameObject.GetComponent<Rigidbody>().isKinematic = true;
                 hitGrab.collider.gameObject.transform.SetParent(Attach, true);
                 hitGrab.collider.gameObject.transform.localPosition = Vector3.zero;
-                Attach.GetChild(0).GetComponent<Rigidbody>().isKinematic = true;
+                alreadyGrabbed = true;
             }
         }
-        if(die)
-        {
-            Spawn();
-            die = false;
-        }
+        */
     }
+
 
     //Could do (but decided against):
     //When raycast hits a grabbable object, switch ObjectGrabbed to true, and set its transform to the transform of ant plus offset

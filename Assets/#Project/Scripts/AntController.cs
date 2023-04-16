@@ -13,6 +13,7 @@ public class AntController : MonoBehaviour
     public bool AntOne;
     public Transform Attach;
     private bool alreadyGrabbed = false;
+    public Transform SceneWrapper;
 
     public bool die = false;
 
@@ -21,7 +22,7 @@ public class AntController : MonoBehaviour
         if(alreadyGrabbed)
         {
             Attach.GetChild(0).GetComponent<Rigidbody>().isKinematic = false;
-            Attach.GetChild(0).transform.parent = null;
+            Attach.GetChild(0).transform.parent = SceneWrapper;
         }
         float spawnAngle = Random.Range(0f, 360f); // A random angle in degrees
         Vector3 spawnDirection = Quaternion.Euler(0f, spawnAngle, 0f) * Vector3.forward; // A vector pointing in a random direction
@@ -35,8 +36,7 @@ public class AntController : MonoBehaviour
 
     }
 
-    private void Awake()
-    {
+    private void Awake() {
         Spawn();
     }
 

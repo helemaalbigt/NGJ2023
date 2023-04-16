@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ant
   - Grabbable
+  - Win Zone
   layers:
   - Default
   - TransparentFX

@@ -436,7 +436,7 @@ GameObject:
   - component: {fileID: 2673054995410435935}
   - component: {fileID: 2673054995410435932}
   m_Layer: 5
-  m_Name: AntJoinCodeCanvas
+  m_Name: DUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

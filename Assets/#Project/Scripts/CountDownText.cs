@@ -6,24 +6,19 @@ using TMPro;
 public class CountDownText : MonoBehaviour
 {
     public TextMeshProUGUI text;
+    public GameObject target;
 
     // Update is called once per frame
     void Update()
     {
         if (GameStateManager.Instance.currentState == GameStateManager.GameState.GameStarting)
         {
-            if (gameObject.activeInHierarchy == false)
-            {
-                gameObject.SetActive(true);
-            }
+            target.SetActive(true);
             text.text = Mathf.Ceil(GameStateManager.Instance.timer).ToString();
         }
         else
         {
-            if (gameObject.activeInHierarchy == true)
-            {
-                gameObject.SetActive(false);
-            }
+            target.SetActive(false);
         }
         
     }

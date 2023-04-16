@@ -10,6 +10,6 @@ public class StompDetection : MonoBehaviour {
         ant = GetComponent<AntController>();
     }
     public void Stomp() {
-        ant.Spawn();
+        ant.GetStomped();
     }
 }

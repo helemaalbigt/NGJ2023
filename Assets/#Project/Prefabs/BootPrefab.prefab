@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8552555767413916909}
   - component: {fileID: 2669868949687271179}
   - component: {fileID: 6168096761636698442}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left_Boot_Knob_08
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 6173703592072276783}
   - component: {fileID: 3998591658460677718}
   - component: {fileID: 7234671120803533667}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BootPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -277,7 +277,7 @@ GameObject:
   - component: {fileID: 4562128334562888280}
   - component: {fileID: 2061322887428738559}
   - component: {fileID: 7697737575633688240}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left_Boot_Knob_09
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -360,7 +360,7 @@ GameObject:
   - component: {fileID: 7111141473294244394}
   - component: {fileID: 1932524291274260699}
   - component: {fileID: 7459779150853265278}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left_Boot_Knob_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -443,7 +443,7 @@ GameObject:
   - component: {fileID: 3593447633879074064}
   - component: {fileID: 76646381415831371}
   - component: {fileID: 1064954411568252845}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left_Boot_Rope
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -526,7 +526,7 @@ GameObject:
   - component: {fileID: 1120616169912420255}
   - component: {fileID: 661487947924155329}
   - component: {fileID: 3405700451692488345}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left_Boot_Knob_06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -609,7 +609,7 @@ GameObject:
   - component: {fileID: 7005784024743460083}
   - component: {fileID: 2076757609434395448}
   - component: {fileID: 7482974196124021590}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left_Boot_Knob_012
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -692,7 +692,7 @@ GameObject:
   - component: {fileID: 2245028020969307898}
   - component: {fileID: 1589925448861561741}
   - component: {fileID: 3481767165928018844}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left_Boot_Knob_010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -773,7 +773,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6651757883130346716}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left_Boot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -821,7 +821,7 @@ GameObject:
   - component: {fileID: 6222125881286718198}
   - component: {fileID: 9167852668027546397}
   - component: {fileID: 5673200288273014847}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left_Boot_Knob_011
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -904,7 +904,7 @@ GameObject:
   - component: {fileID: 2399654545763040312}
   - component: {fileID: 667343977914289989}
   - component: {fileID: 8290749440145642996}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left_Boot_Knob_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1070,7 +1070,7 @@ GameObject:
   - component: {fileID: 4477569889079040537}
   - component: {fileID: 2225152644500047907}
   - component: {fileID: 2124327205241142595}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left_Boot_Knob_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1153,7 +1153,7 @@ GameObject:
   - component: {fileID: 7286402433634065422}
   - component: {fileID: 8632388572899634123}
   - component: {fileID: 1337385372683068592}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left_Boot_Knob_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1236,7 +1236,7 @@ GameObject:
   - component: {fileID: 5990091038269602794}
   - component: {fileID: 1830943252648959230}
   - component: {fileID: 310719228472745513}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left_Boot_Knob_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1319,7 +1319,7 @@ GameObject:
   - component: {fileID: 7576027964377311527}
   - component: {fileID: 4122580023332525642}
   - component: {fileID: 2138074439087198254}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left_Boot_Main
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1402,7 +1402,7 @@ GameObject:
   - component: {fileID: 3866399690924260500}
   - component: {fileID: 8473955307748059934}
   - component: {fileID: 2491787011197531601}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left_Boot_Knob_07
   m_TagString: Untagged
   m_Icon: {fileID: 0}

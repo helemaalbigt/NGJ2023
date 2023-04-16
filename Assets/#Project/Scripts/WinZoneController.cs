@@ -11,11 +11,13 @@ public class WinZoneController : MonoBehaviour
 
     public float distanceThreshold = .2f;
     public UnityEvent foodStolenEvent;
+    public GameStateManager gameStateManager;
 
     private void Start()
     {
         antController1 = ant1.GetComponent<AntController>();
         antController2 = ant2.GetComponent<AntController>();
+        gameStateManager = GameStateManager.Instance;
     }
 
     private void Update()
@@ -28,7 +30,9 @@ public class WinZoneController : MonoBehaviour
             {
                 if(ant1.transform.Find("Attach").childCount > 0)
                 {
-                    Debug.Log("Fruit stolen, +1 point for the ants");
+                    
+                    gameStateManager.score++;
+                    Debug.Log("Fruit stolen, score is now" + gameStateManager.score);
                     Debug.Log("Food was a: " + ant1.transform.Find("Attach").GetChild(0).name);
                     Destroy(ant1.transform.Find("Attach").GetChild(0).gameObject);
                     antController1.alreadyGrabbed = false;

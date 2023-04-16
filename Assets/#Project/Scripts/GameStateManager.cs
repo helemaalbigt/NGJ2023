@@ -20,6 +20,7 @@ public class GameStateManager : MonoBehaviour
     [SerializeField] private float gameoverTime = 5f;
     public GameState currentState = GameState.Waiting;
     public float timer;
+    public int score;
 
     public static event Action<GameState> OnGameStateChanged;
 
@@ -54,6 +55,7 @@ public class GameStateManager : MonoBehaviour
                 {
                     SetGameState(GameState.GameRunning);
                     timer = gameTime;
+                    score = 0;
                 }
                 break;
 

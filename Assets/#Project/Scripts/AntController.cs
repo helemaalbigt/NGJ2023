@@ -9,16 +9,27 @@ public class AntController : MonoBehaviour
     private float spawnDistance = 2.5f;
     public float offset;
     public float SphereRadius = 0.025f;
+    private AudioClip[] clips_grab; // set on Awake.
+    private AudioClip[] clips_die; // set on Awake.
 
     public bool AntOne;
     public Transform Attach;
     public bool alreadyGrabbed = false;
     public Transform SceneWrapper;
+    public AudioSource myAudioSource; // voice!
 
     public LayerMask layerMask;
 
 
-    public void Spawn() {
+    private void Awake() {
+        clips_die = Resources.LoadAll<AudioClip>("Audio/AntDie");
+        clips_grab = Resources.LoadAll<AudioClip>("Audio/AntGrabFood");
+
+        Spawn();
+    }
+
+
+    private void Spawn() {
         Debug.Log("spawning");
         if(alreadyGrabbed)
         {
@@ -34,21 +45,23 @@ public class AntController : MonoBehaviour
         spawnPosition.y = 0;
         transform.rotation = spawnRotation;
         transform.position = spawnPosition;
-
     }
+    public void GetStomped() {
+        // Play random sfx.
+        myAudioSource.clip = clips_die[Random.Range(0, clips_die.Length)];
+        myAudioSource.time = 0;
+        myAudioSource.Play();
 
-    private void Awake() {
         Spawn();
     }
 
+
     void Update()
     {
-
         if (AntOne)
         {
             HandleMovement(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
             HandleGrab();
-
         }
         else
         {
@@ -100,10 +113,15 @@ public class AntController : MonoBehaviour
         var collisions = Physics.OverlapSphere(transform.position, SphereRadius, layerMask);
         if(collisions.Length > 0 && alreadyGrabbed == false)
         {
+            // Grab!
             collisions[0].GetComponent<Rigidbody>().isKinematic = true;
             collisions[0].transform.SetParent(Attach, true);
             //collisions[0].transform.localPosition = Vector3.zero;
             alreadyGrabbed = true;
+            // Play random sfx.
+            myAudioSource.clip = clips_grab[Random.Range(0, clips_grab.Length)];
+            myAudioSource.time = 0;
+            myAudioSource.Play();
         }
         
         /*

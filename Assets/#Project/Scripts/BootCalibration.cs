@@ -19,6 +19,10 @@ public class BootCalibration : MonoBehaviour
     public GameObject _calibrationWrapper;
     public GameObject _gameWrapper;
 
+    [Header("LayerMasks")] 
+    public LayerMask _calibMask;
+    public LayerMask _gameMask;
+    
     private bool _calibrating;
     private bool _triggersHeld;
 
@@ -70,14 +74,12 @@ public class BootCalibration : MonoBehaviour
     private void SetCalibrationView() {
         _passthroughLayer.enabled = true;
         _mainCamera.clearFlags = CameraClearFlags.SolidColor;
-        _calibrationWrapper.SetActive(true);
-        _gameWrapper.SetActive(false);
+        _mainCamera.cullingMask = _calibMask;
     }
     
     private void SetGameView() {
         _passthroughLayer.enabled = false;
         _mainCamera.clearFlags = CameraClearFlags.Skybox;
-        _calibrationWrapper.SetActive(false);
-        _gameWrapper.SetActive(true);
+        _mainCamera.cullingMask = _gameMask;
     }
 }

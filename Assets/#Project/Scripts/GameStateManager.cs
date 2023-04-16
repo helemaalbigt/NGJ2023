@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using Oculus.Interaction.Samples;
+using TMPro;
 using UnityEngine.SceneManagement;
 
 public class GameStateManager : MonoBehaviour
@@ -20,6 +21,8 @@ public class GameStateManager : MonoBehaviour
     [SerializeField] private float gameoverTime = 5f;
     public GameState currentState = GameState.Waiting;
     public float timer;
+    public TextMeshProUGUI scoreText;
+    public int score;
 
     public static event Action<GameState> OnGameStateChanged;
 
@@ -54,6 +57,8 @@ public class GameStateManager : MonoBehaviour
                 {
                     SetGameState(GameState.GameRunning);
                     timer = gameTime;
+                    score = 0;
+                    UpdateScoreUi();
                 }
                 break;
 
@@ -75,6 +80,10 @@ public class GameStateManager : MonoBehaviour
                 }
                 break;
         }
+    }
+
+    public void UpdateScoreUi() {
+        scoreText.text = score.ToString();
     }
 
     public void SetGameState(GameState newState)

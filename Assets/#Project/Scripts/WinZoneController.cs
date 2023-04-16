@@ -28,8 +28,10 @@ public class WinZoneController : MonoBehaviour
             {
                 if(ant1.transform.Find("Attach").childCount > 0)
                 {
-                    Debug.Log("Fruit stolen, +1 point for the ants");
-                    Debug.Log("Food was a: " + ant1.transform.Find("Attach").GetChild(0).name);
+                    //Debug.Log("Fruit stolen, +1 point for the ants");
+                    //Debug.Log("Food was a: " + ant1.transform.Find("Attach").GetChild(0).name);
+                    GameStateManager.Instance.score++;
+                    GameStateManager.Instance.UpdateScoreUi();
                     Destroy(ant1.transform.Find("Attach").GetChild(0).gameObject);
                     antController1.alreadyGrabbed = false;
                     foodStolenEvent.Invoke();
@@ -47,8 +49,10 @@ public class WinZoneController : MonoBehaviour
             {
                 if (ant2.transform.Find("Attach").childCount > 0)
                 {
-                    Debug.Log("Fruit stolen, +1 point for the ants");
-                    Debug.Log("Food was a: " + ant2.transform.Find("Attach").GetChild(0).name);
+                    //Debug.Log("Fruit stolen, +1 point for the ants");
+                   // Debug.Log("Food was a: " + ant2.transform.Find("Attach").GetChild(0).name);
+                    GameStateManager.Instance.score++;
+                    GameStateManager.Instance.UpdateScoreUi();
                     Destroy(ant2.transform.Find("Attach").GetChild(0).gameObject);
                     antController2.alreadyGrabbed = false;
                     foodStolenEvent.Invoke();

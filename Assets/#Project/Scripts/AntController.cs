@@ -58,6 +58,7 @@ public class AntController : MonoBehaviour
     }
     void HandleMovement(float horizontal, float vertical)
     {
+        if (GameStateManager.Instance.currentState != GameStateManager.GameState.GameRunning) return;
         /*
         if (Physics.SphereCast(transform.position + Vector3.forward * offset, SphereRadius, transform.forward, out RaycastHit hitForward, raycastMoveCheckDistance))
         {

@@ -16,7 +16,7 @@ public class GameStateManager : MonoBehaviour
     [SerializeField] private float startCountDown = 3.0f;
     [SerializeField] private float gameTime = 10.0f;
     [SerializeField] private float gameoverTime = 5f;
-    private GameState currentState;
+    public GameState currentState;
     public float timer;
 
     public static event Action<GameState> OnGameStateChanged;

@@ -7,6 +7,7 @@ public class WinZoneController : MonoBehaviour
     public GameObject ant2;
     public AntController antController1;
     public AntController antController2;
+    public AudioSource myAudioSource;
 
     public float distanceThreshold = .2f;
     public UnityEvent foodStolenEvent;
@@ -32,6 +33,9 @@ public class WinZoneController : MonoBehaviour
                     Destroy(ant1.transform.Find("Attach").GetChild(0).gameObject);
                     antController1.alreadyGrabbed = false;
                     foodStolenEvent.Invoke();
+                    // Play sfx.
+                    myAudioSource.time = 0;
+                    myAudioSource.Play();
                 }
             }
         }

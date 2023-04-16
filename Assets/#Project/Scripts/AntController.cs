@@ -1,23 +1,28 @@
 using UnityEngine;
-using Unity.Netcode;
-public class AntController : NetworkBehaviour
+
+public class AntController : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public float rotationSpeed = 100f;
     public float raycastDistance = 1f;
     public float raycastMoveCheckDistance = 1f;
-    private GameObject VrPlayer;
     private float spawnDistance = 2.5f;
     public float offset;
     public float SphereRadius = 0.025f;
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawLine(transform.position + Vector3.forward * offset, transform.position + Vector3.forward * raycastDistance);
-    }
+    public bool AntOne;
+    public Transform Attach;
+    private bool alreadyGrabbed = false;
 
-    void Spawn()
+    public bool die = false;
+
+    public void Spawn()
     {
+        if(alreadyGrabbed)
+        {
+            Attach.GetChild(0).GetComponent<Rigidbody>().isKinematic = false;
+            Attach.GetChild(0).transform.parent = null;
+        }
         float spawnAngle = Random.Range(0f, 360f); // A random angle in degrees
         Vector3 spawnDirection = Quaternion.Euler(0f, spawnAngle, 0f) * Vector3.forward; // A vector pointing in a random direction
         Vector3 spawnPosition = spawnDirection * spawnDistance; // A random position outside of the cube
@@ -30,37 +35,28 @@ public class AntController : NetworkBehaviour
 
     }
 
-    public override void OnNetworkSpawn()
+    private void Awake()
     {
-        if (IsServer && IsOwner)
-        {
-            NetworkObject.Despawn();
-        }
-        if (!IsServer && IsOwner)
-        {
-            VrPlayer = GameObject.Find("VrPlayer");
-            VrPlayer.SetActive(false);
-            Spawn();
-        }
-
+        Spawn();
     }
 
     void Update()
     {
-        if (Physics.Raycast(transform.position + Vector3.forward * offset, transform.forward, out RaycastHit hitGrab, raycastDistance))
+
+        if (AntOne)
         {
-            Debug.Log(hitGrab.collider.gameObject.name);
-            if (hitGrab.collider.gameObject.CompareTag("Grabbable"))
-            {
-                Debug.Log("Collided with grabbable object");
-                hitGrab.collider.gameObject.transform.SetParent(transform, true);
-            }
+            HandleMovement(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+            HandleGrab();
+
         }
-
-        if (!IsOwner) return;
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-
+        else
+        {
+            HandleMovement(Input.GetAxis("Horizontal2"), Input.GetAxis("Vertical2"));
+            HandleGrab();
+        }
+    }
+    void HandleMovement(float horizontal, float vertical)
+    {
         if (Physics.SphereCast(transform.position + Vector3.forward * offset, SphereRadius, transform.forward, out RaycastHit hitForward, raycastMoveCheckDistance))
         {
             if (!hitForward.collider.CompareTag("Grabbable"))
@@ -88,6 +84,34 @@ public class AntController : NetworkBehaviour
 
         // Rotate the player on the Y axis based on input
         transform.Rotate(Vector3.up, horizontal * rotationSpeed * Time.deltaTime);
+    }
+
+    void HandleGrab()
+    {
+        if (Attach.childCount > 0)
+        {
+            alreadyGrabbed = true;
+        }
+        else
+        {
+            alreadyGrabbed = false;
+        }
+        if (Physics.Raycast(transform.position + Vector3.forward * offset, transform.forward, out RaycastHit hitGrab, raycastDistance) && !alreadyGrabbed)
+        {
+            Debug.Log(hitGrab.collider.gameObject.name);
+            if (hitGrab.collider.gameObject.CompareTag("Grabbable"))
+            {
+                Debug.Log("Collided with grabbable object");
+                hitGrab.collider.gameObject.transform.SetParent(Attach, true);
+                hitGrab.collider.gameObject.transform.localPosition = Vector3.zero;
+                Attach.GetChild(0).GetComponent<Rigidbody>().isKinematic = true;
+            }
+        }
+        if(die)
+        {
+            Spawn();
+            die = false;
+        }
     }
 
     //Could do (but decided against):

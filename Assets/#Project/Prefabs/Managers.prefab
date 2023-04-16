@@ -354,4 +354,4 @@ MonoBehaviour:
   startCountDown: 3
   gameTime: 60
   gameoverTime: 5
-  timer: 1.0788773
+  timer: 0

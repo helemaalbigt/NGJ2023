@@ -18,8 +18,8 @@ public class AntController : MonoBehaviour
     public LayerMask layerMask;
 
 
-    public void Spawn()
-    {
+    public void Spawn() {
+        Debug.Log("spawning");
         if(alreadyGrabbed)
         {
             Attach.GetChild(0).GetComponent<Rigidbody>().isKinematic = false;
@@ -95,15 +95,16 @@ public class AntController : MonoBehaviour
         {
             alreadyGrabbed = false;
         }
-
+        
         var collisions = Physics.OverlapSphere(transform.position, SphereRadius, layerMask);
-        if(collisions.Length > 0)
+        if(collisions.Length > 0 && alreadyGrabbed == false)
         {
             collisions[0].GetComponent<Rigidbody>().isKinematic = true;
             collisions[0].transform.SetParent(Attach, true);
             //collisions[0].transform.localPosition = Vector3.zero;
             alreadyGrabbed = true;
         }
+        
         /*
         if (Physics.SphereCast(transform.position + Vector3.forward * offset, SphereRadius, transform.forward, out RaycastHit hitGrab, raycastDistance) && !alreadyGrabbed)
         {
@@ -118,6 +119,7 @@ public class AntController : MonoBehaviour
             }
         }
         */
+        
     }
 
 

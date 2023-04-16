@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/#Project/_Scenes/NGO_Relay.unity
+    path: Assets/#Project/_Scenes/Main.unity
     guid: 4145653e27d48614da8af1fe65126d5b
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: c525ba158ecd9334da6e74d5766e4ebe, type: 2}

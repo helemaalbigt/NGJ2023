@@ -47,7 +47,6 @@ public class AntController : NetworkBehaviour
 
     void Update()
     {
-
         if (Physics.Raycast(transform.position + Vector3.forward * offset, transform.forward, out RaycastHit hitGrab, raycastDistance))
         {
             Debug.Log(hitGrab.collider.gameObject.name);

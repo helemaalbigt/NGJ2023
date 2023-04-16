@@ -5,6 +5,7 @@ public class GameStateManager : MonoBehaviour
 {
     public enum GameState
     {
+        Waiting,
         GameStarting,
         GameRunning,
         GameOver
@@ -14,9 +15,9 @@ public class GameStateManager : MonoBehaviour
 
     [SerializeField] private float startCountDown = 3.0f;
     [SerializeField] private float gameTime = 10.0f;
-
+    [SerializeField] private float gameoverTime = 5f;
     private GameState currentState;
-    private float timer;
+    public float timer;
 
     public static event Action<GameState> OnGameStateChanged;
 
@@ -35,7 +36,7 @@ public class GameStateManager : MonoBehaviour
 
     private void Start()
     {
-        SetGameState(GameState.GameStarting);
+        SetGameState(GameState.Waiting);
         timer = startCountDown;
     }
 
@@ -43,6 +44,8 @@ public class GameStateManager : MonoBehaviour
     {
         switch (currentState)
         {
+            case GameState.Waiting:
+                break;
             case GameState.GameStarting:
                 timer -= Time.deltaTime;
                 if (timer <= 0)
@@ -56,17 +59,24 @@ public class GameStateManager : MonoBehaviour
                 timer -= Time.deltaTime;
                 if (timer <= 0)
                 {
+                    timer = gameoverTime;
                     SetGameState(GameState.GameOver);
                 }
                 break;
 
             case GameState.GameOver:
                 // Handle the game over state, e.g., show a game over screen or restart the game
+                timer -= Time.deltaTime;
+                if (timer <= 0)
+                {
+                    timer = startCountDown;
+                    SetGameState(GameState.Waiting);
+                }
                 break;
         }
     }
 
-    private void SetGameState(GameState newState)
+    public void SetGameState(GameState newState)
     {
         currentState = newState;
         OnGameStateChanged?.Invoke(newState);

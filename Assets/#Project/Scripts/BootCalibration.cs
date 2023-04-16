@@ -27,19 +27,13 @@ public class BootCalibration : MonoBehaviour
     private bool _triggersHeld;
 
     private void Start() {
-#if UNITY_ANDROID
         _calibrating = true;
         PlaceShoeOnAnchor();
         SetCalibrationView();
-#else
-        _shoeLeft.gameObject.SetActive(true);
-        _shoeRight.gameObject.SetActive(true);
-#endif
     }
 
     void Update()
     {
-#if UNITY_ANDROID
         if (InputManager.I.Trigger(Hand.right) && InputManager.I.Trigger(Hand.left) && !_calibrating && !_triggersHeld) {
             _calibrating = true;
             _triggersHeld = true;
@@ -50,7 +44,12 @@ public class BootCalibration : MonoBehaviour
         if (InputManager.I.Trigger(Hand.right) && InputManager.I.Trigger(Hand.left) && _calibrating && !_triggersHeld) {
             _calibrating = false;
             _triggersHeld = true;
-            
+
+            if (GameStateManager.Instance.currentState == GameStateManager.GameState.Waiting)
+            {
+                GameStateManager.Instance.SetGameState(GameStateManager.GameState.GameStarting);
+            }
+
             SetGameView();
         }
 
@@ -61,7 +60,6 @@ public class BootCalibration : MonoBehaviour
         if(_triggersHeld && !InputManager.I.Trigger(Hand.right) && !InputManager.I.Trigger(Hand.left)) {
             _triggersHeld = false;
         }
-#endif
     }
 
     private void PlaceShoeOnAnchor() {

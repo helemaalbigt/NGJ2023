@@ -43,14 +43,16 @@ public class WinZoneController : MonoBehaviour
         if (antController2.alreadyGrabbed)
         {
             float distance = Vector3.Distance(this.transform.position, ant2.transform.position);
-
-            if (ant2.transform.Find("Attach").childCount > 0)
+            if (distance <= distanceThreshold)
             {
-                Debug.Log("Fruit stolen, +1 point for the ants");
-                Debug.Log("Food was a: " + ant2.transform.Find("Attach").GetChild(0).name);
-                Destroy(ant2.transform.Find("Attach").GetChild(0).gameObject);
-                antController2.alreadyGrabbed = false;
-                foodStolenEvent.Invoke();
+                if (ant2.transform.Find("Attach").childCount > 0)
+                {
+                    Debug.Log("Fruit stolen, +1 point for the ants");
+                    Debug.Log("Food was a: " + ant2.transform.Find("Attach").GetChild(0).name);
+                    Destroy(ant2.transform.Find("Attach").GetChild(0).gameObject);
+                    antController2.alreadyGrabbed = false;
+                    foodStolenEvent.Invoke();
+                }
             }
         }
     }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.10117787, g: 0.2880348, b: 0.5371327, a: 1}
+  m_IndirectSpecularColor: {r: 0.10139937, g: 0.2892555, b: 0.5375916, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -919,6 +919,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6004575424417658859, guid: 253ec52ebed876f45b060dbc3754981e, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 253ec52ebed876f45b060dbc3754981e, type: 3}
 --- !u!1001 &778003103727100326
@@ -1036,6 +1040,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 6004575424417658859, guid: 253ec52ebed876f45b060dbc3754981e, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 7144751181019241959, guid: 253ec52ebed876f45b060dbc3754981e, type: 3}
       propertyPath: m_Layer
       value: 8
@@ -1096,6 +1104,10 @@ PrefabInstance:
     - target: {fileID: 778003102524237919, guid: 261cc5795d5a2f04da09126f3f30791b, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 3090056181
+      objectReference: {fileID: 0}
+    - target: {fileID: 778003103973502841, guid: 261cc5795d5a2f04da09126f3f30791b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 778003104125052976, guid: 261cc5795d5a2f04da09126f3f30791b, type: 3}
       propertyPath: m_RootOrder
@@ -1296,6 +1308,14 @@ PrefabInstance:
     - target: {fileID: 8449556372830686813, guid: 261cc5795d5a2f04da09126f3f30791b, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 3614474363
+      objectReference: {fileID: 0}
+    - target: {fileID: 8453527189443937850, guid: 261cc5795d5a2f04da09126f3f30791b, type: 3}
+      propertyPath: m_Size.y
+      value: 0.11444626
+      objectReference: {fileID: 0}
+    - target: {fileID: 8453527189443937850, guid: 261cc5795d5a2f04da09126f3f30791b, type: 3}
+      propertyPath: m_Center.y
+      value: 0.44362077
       objectReference: {fileID: 0}
     - target: {fileID: 8812305897818091361, guid: 261cc5795d5a2f04da09126f3f30791b, type: 3}
       propertyPath: AntOne

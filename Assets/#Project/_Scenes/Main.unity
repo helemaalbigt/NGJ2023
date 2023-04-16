@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.10117787, g: 0.2880348, b: 0.5371327, a: 1}
+  m_IndirectSpecularColor: {r: 0.10139937, g: 0.2892555, b: 0.5375916, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -394,11 +394,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 908119354}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &910048460 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9030186788293397005, guid: 261cc5795d5a2f04da09126f3f30791b, type: 3}
-  m_PrefabInstance: {fileID: 6268828824685227731}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &950917432 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 954158329648426855, guid: 253ec52ebed876f45b060dbc3754981e, type: 3}
@@ -678,6 +673,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1505173859}
     - target: {fileID: 2187985163589668505, guid: e907ca95fee670e45b1d14e1fbcb4d9d, type: 3}
+      propertyPath: _gameMask.m_Bits
+      value: 1399
+      objectReference: {fileID: 0}
+    - target: {fileID: 2187985163589668505, guid: e907ca95fee670e45b1d14e1fbcb4d9d, type: 3}
       propertyPath: _shoeRightAnchor
       value: 
       objectReference: {fileID: 1130151016}
@@ -707,11 +706,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 555725d48e9051a4bb6b8d45178c2fdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1977218345 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9030186787601683250, guid: 261cc5795d5a2f04da09126f3f30791b, type: 3}
-  m_PrefabInstance: {fileID: 6268828824685227731}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1998328519
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1003,14 +997,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 477503928196825281, guid: 261cc5795d5a2f04da09126f3f30791b, type: 3}
-      propertyPath: ant1
-      value: 
-      objectReference: {fileID: 1977218345}
-    - target: {fileID: 477503928196825281, guid: 261cc5795d5a2f04da09126f3f30791b, type: 3}
-      propertyPath: ant2
-      value: 
-      objectReference: {fileID: 910048460}
     - target: {fileID: 778003104125052976, guid: 261cc5795d5a2f04da09126f3f30791b, type: 3}
       propertyPath: m_RootOrder
       value: 5

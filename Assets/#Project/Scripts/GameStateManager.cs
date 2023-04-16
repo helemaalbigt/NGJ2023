@@ -1,5 +1,7 @@
 using UnityEngine;
 using System;
+using Oculus.Interaction.Samples;
+using UnityEngine.SceneManagement;
 
 public class GameStateManager : MonoBehaviour
 {
@@ -16,7 +18,7 @@ public class GameStateManager : MonoBehaviour
     [SerializeField] private float startCountDown = 3.0f;
     [SerializeField] private float gameTime = 10.0f;
     [SerializeField] private float gameoverTime = 5f;
-    public GameState currentState;
+    public GameState currentState = GameState.Waiting;
     public float timer;
 
     public static event Action<GameState> OnGameStateChanged;
@@ -69,8 +71,7 @@ public class GameStateManager : MonoBehaviour
                 timer -= Time.deltaTime;
                 if (timer <= 0)
                 {
-                    timer = startCountDown;
-                    SetGameState(GameState.Waiting);
+                    SceneManager.LoadScene(0);
                 }
                 break;
         }

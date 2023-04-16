@@ -1208,6 +1208,7 @@ MonoBehaviour:
   SphereRadius: 0.025
   AntOne: 0
   Attach: {fileID: 2629602053300950948}
+  alreadyGrabbed: 0
   SceneWrapper: {fileID: 0}
   die: 0
 --- !u!54 &4050536451635875007
@@ -2270,7 +2271,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 375
+    m_Bits: 887
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0

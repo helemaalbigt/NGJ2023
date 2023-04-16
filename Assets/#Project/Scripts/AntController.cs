@@ -12,7 +12,7 @@ public class AntController : MonoBehaviour
 
     public bool AntOne;
     public Transform Attach;
-    private bool alreadyGrabbed = false;
+    public bool alreadyGrabbed = false;
     public Transform SceneWrapper;
 
     public bool die = false;
